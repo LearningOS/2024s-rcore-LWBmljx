@@ -58,7 +58,7 @@ pub fn sys_task_info(_ti: *mut TaskInfo) -> isize {
         *_ti = TaskInfo {
             status: TaskStatus::Running,
             syscall_times: task_info.syscall_counts,
-            time: task_info.start_time,
+            time: task_info.start_time - get_time_us(),
         };
     }
     0
